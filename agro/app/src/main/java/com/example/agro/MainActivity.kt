@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingImage(message = "Welcome to AGreion" , from = "Varun")
+                    GreetingImage(message = getString(R.string.welcome_note) , from = getString(R.string.simp))
                 }
             }
         }
@@ -77,6 +78,8 @@ fun GreetingImage(message: String , from: String , modifier: Modifier = Modifier
 @Composable
 fun AgreionWelcomePreview() {
     AgroTheme {
-        GreetingImage(message = "Welcome to AGreion" , from = "Varun")
+        GreetingImage(message = stringResource(id = R.string.welcome_note) , from = stringResource(
+            id = R.string.simp
+        ))
     }
 }

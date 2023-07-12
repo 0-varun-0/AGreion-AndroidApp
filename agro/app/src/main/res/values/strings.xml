@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">agro</string>
+    <string name="welcome_note">Welcome to AGreion</string>
+    <string name="simp">a Human</string>
+    <string name="title_activity_about">About</string>
+    <string name="Name_user">Human</string>
+    <string name="short_description">evwefefefef  wgrgege weg rggwbwwnw</string>
+    <string name="long_Description">evwefefefef  wgrgege weg rggwbwwnw</string>
+    <string name="title_activity_success_screen">success_Screen</string>
 </resources>
