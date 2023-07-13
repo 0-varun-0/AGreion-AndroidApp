@@ -13,6 +13,17 @@
         android:theme="@style/Theme.Agro"
         tools:targetApi="31">
         <activity
+            android:name=".Homepage"
+            android:exported="true"
+            android:label="@string/title_activity_homepage"
+            android:theme="@style/Theme.Agro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".quadrants"
             android:exported="true"
             android:label="@string/title_activity_quadrants"
