@@ -3,20 +3,24 @@ package com.example.agro
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.agro.ui.theme.AgroTheme
 
 class QuadrantsActivity : ComponentActivity() {
@@ -35,51 +39,38 @@ class QuadrantsActivity : ComponentActivity() {
     }
 }
 
+
+
 @Composable
-fun CreateQuadrant() {
-    Column(Modifier.fillMaxSize()) {
+fun CreateQuadrant(modifier: Modifier = Modifier)
+{
+
+    Column(Modifier.fillMaxSize())
+    {
+
         Row(Modifier.weight(1f)) {
-            ComposableInfoCard(
-                title = "First",
-                description = "Nothing",
-                backgroundcolor = Color(0xFFEADDFF),
-                modifier = Modifier.weight(1f)
-            )
-            ComposableInfoCard(
-                title = "Second",
-                description = "Nothing",
-                backgroundcolor = Color(0xFFD0BCFF),
-                modifier = Modifier.weight(1f)
-            )
+            GridForDisplay(title = "First", Description ="Nothing" , bcolour = Color.Cyan, modifier = Modifier.weight(1f))
+            GridForDisplay(title = "Second", Description ="Nothing" , bcolour = Color.Cyan, modifier = Modifier.weight(1f))
         }
+
+
         Row(Modifier.weight(1f)) {
-            ComposableInfoCard(
-                title = "Third",
-                description = "Nothing",
-                backgroundcolor = Color(0xFFB69DF8),
-                modifier = Modifier.weight(1f)
-            )
-            ComposableInfoCard(
-                title = "Fourth",
-                description = "Nothing",
-                backgroundcolor = Color(0xFFF6EDFF),
-                modifier = Modifier.weight(1f)
-            )
+            GridForDisplay(title = "Third", Description ="Nothing" , bcolour = Color.Cyan, modifier = Modifier.weight(1f))
+            GridForDisplay(title = "fourth", Description ="Nothing" , bcolour = Color.Cyan, modifier = Modifier.weight(1f))
         }
+
     }
 }
 
 @Composable
-private fun ComposableInfoCard(
-    title: String,
-    description: String,
-    backgroundcolor: Color,
-    modifier: Modifier = Modifier
-) {
+fun GridForDisplay(title : String , Description : String ,
+                   bcolour : Color ,
+                   modifier: Modifier = Modifier )
+{
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(backgroundcolor)
+            .background(bcolour)
             .padding(16.dp),
         contentAlignment = Alignment.Center
 
@@ -89,15 +80,82 @@ private fun ComposableInfoCard(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(text = title, fontWeight = FontWeight.Bold)
-            Text(text = description, textAlign = TextAlign.Justify)
+            Text(text = Description, textAlign = TextAlign.Justify)
         }
     }
 }
+
+
+@Composable
+fun CreateownQuadrant()
+{
+    Column(Modifier.fillMaxSize()) {
+
+        Row(Modifier.weight(0.2f)) {
+
+            GridForDisplay(
+                title = "No1 ",
+                Description = "Nothing",
+                bcolour = Color.Cyan,
+                modifier = Modifier.weight(0.4f)
+
+            )
+        }
+        Row(Modifier.weight(1f))
+        {
+            GridForDisplay(title ="No2" ,
+                Description ="Nothing" ,
+                bcolour = Color.Gray,
+                modifier = Modifier.weight(0.6f)
+
+            )
+
+        }
+
+        Row(Modifier.weight(1f)) {
+
+            GridForDisplay(title = "No3 ",
+                Description = "Nothing",
+                bcolour = Color.LightGray,
+                modifier = Modifier.weight(1f)
+            )
+
+
+            GridForDisplay(title ="No4" ,
+                Description ="Nothing" ,
+                bcolour = Color.DarkGray,
+                modifier = Modifier.weight(1f)
+            )
+
+        }
+        Row(Modifier.weight(1f)) {
+
+            GridForDisplay(title = "No5 ",
+                Description = "Nothing",
+                bcolour = Color.Cyan,
+                modifier = Modifier.weight(1f)
+            )
+
+
+            GridForDisplay(title ="No6" ,
+                Description ="Nothing" ,
+                bcolour = Color.Yellow,
+                modifier = Modifier.weight(1.6f)
+            )
+
+        }
+
+
+
+    }
+}
+
+
 
 @Preview(showBackground = true , showSystemUi = true)
 @Composable
 fun QuadrantsPreview() {
     AgroTheme {
-        CreateQuadrant()
+        CreateownQuadrant()
     }
 }
